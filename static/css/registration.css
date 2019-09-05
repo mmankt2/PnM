@@ -1,0 +1,28 @@
+
+div.primary {
+  background-image: url("../img/black-cat-banner.png");
+  background-repeat:no-repeat;
+  background-position:left;
+  background-size:23%;
+ }
+#wrapper{
+  background-color:rgb(217, 217, 217);
+}
+form{
+  width:48%;
+  display:inline-block;
+  vertical-align:top;
+  margin-left:1%;
+}
+#messages{
+  margin:8px;
+  font-size: 13px;
+  color:red;
+}
+#messages p{
+  height:16px;
+  margin:0px;
+}
+.hidden {
+  display:none;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>The Black Cat|My Account</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+      <link rel="stylesheet" type="text/css" media="screen" href="{{url_for('static',filename='css/myaccount.css')}}" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="{{url_for('static',filename='js/main.js')}}"></script>
+    </head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-left">
+    <ul class="menu">
+    <li class="menu-text">The Black Cat Agency</li>
+    </ul>
+    </div>
+    <div class="top-bar-right">
+    <ul class="menu">
+    <!--<li><a href="#">One</a></li>
+    <li><a href="#">Two</a></li>-->
+    <li><a href="/myaccount/{{session.id}}">Welcome, {{session.first_name}}</a></li>
+    <li><a href="/logout">Logout</a></li>
+    <li><a href="/">Home</a></li>
+    </ul>
+    </div>
+    </div>
+
+<div class="callout large primary">
+    <div class="text-center">
+    <h1>My Account</h1>
+    </div>
+    </div>
+    <div id="messages">
+        <p class='fn hidden'>Please enter a first name.</p>
+        <p class='ln hidden'>Please enter a last name.</p>
+        <p class='email hidden'>Please enter a valid email address.</p>
+        <p class='password hidden'>Password must have at least 8 characters, one uppercase, one lowercase, and one number.</p>
+        <p class='cpassword hidden'>Passwords don't match.</p>
+        <div class='flash-messages'>
+        {% with messages = get_flashed_messages() %}
+          <!-- declare a variable called messages -->
+          {% if messages %}
+          <!-- check if there are any messages -->
+            {% for message in messages %}
+          <!-- loop through the messages -->
+              <p>{{message}}</p>
+          <!-- display each message in a paragraph tag -->
+            {% endfor %} 
+          {% endif %}
+        {% endwith %}
+        </div>
+      </div>
+      
+  <form action="/users/{{id}}/update" method="POST">
+    <p> <label for="fn">First Name</label>
+      <input type="text" name="first_name" id="fn" class="form-control" value="{{data.first_name}}">
+    </p>
+    <p><label for="ln">Last Name</label>
+      <input type="text" name="last_name" id="ln" class="form-control" value="{{data.last_name}}">
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" class="form-control" value="{{data.email}}">
+    </p>
+    <p>
+      <input type="submit" value="Update">
+    </p>
+    <div><p>  Or you can <a href="/users/{{id}}/destroy">delete your account</a>.  There's no going back...</p></div>
+  </form>
+  <div id="my_sessions">
+    <h6>Upcoming Sessions</h6>
+    <table class="table hover">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Duration</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for event in sessions %}
+        <tr>
+          <td>{{event.date_time}}</td>
+          <td>{{event.session_length}} minutes</td>
+          {% if event.date_time > cancel_date %}
+          <td><form action="/delete_session/{{event.id}}" method="POST">
+            <input type="submit" name="delete_session" value="Delete">
+          </form>
+          <a href="/reschedule_session/{{event.id}}"> Reschedule</a>
+          </td>
+          {% else %}
+          <td></td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/personaltraining/calendar">View Paul's Calendar</a>
+    <p><span class='blue'>Cancelations or rescheduled sessions must be made at least 24 hours in advance of the scheduled time.</span></p>
+  </div>
+</body>
+</html>

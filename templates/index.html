@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Black Cat Littleton</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="{{url_for('static',filename='css/style.css')}}" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="{{url_for('static',filename='js/main.js')}}"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id='header'>
+      <img src="{{url_for('static',filename='img/black-cat-banner.png')}}" alt="black cat banner">
+      <h1>Paul "The Black Cat" Littleton</h1>
+      <div id='login-register'>
+        <a href="/login-register" id="show-login">Login</a> |
+        <a href="/login-register">Register</a>
+        <!--<form action="/login" class='hidden' id='login-form' method="POST">
+          <label for="email">Email</label>
+          <input type="text" name="email" id="login-email" class="">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="login-password" class="">
+          <input type="submit" value="Login">
+        </form>-->
+      </div>
+    </div>
+    <!--header-->
+    <div id="main-content">
+      <div id='nav-bar'>
+        <a href="#about">About</a>
+        <a href="/personaltraining">Personal Training</a>
+        <a href="/boxing">Boxing</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <img src="{{url_for('static',filename='img/sweaty-mirror.jpeg')}}" alt="Training">
+      <div id="about">
+        <h5>About</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illum aut atque voluptates necessitatibus blanditiis
+          aperiam veritatis consequatur commodi, eaque expedita, dicta impedit amet dolor delectus quia quae quis aliquid.</p>
+      </div>
+    </div>
+    <!--main-content-->
+    <div id="footer">
+      <div id='contact'>
+        <h5>Contact</h5>
+        <ul>
+          <li>Email:
+            <a href="info@paullittletonboxing.com">info@paullittletonboxing.com</a>
+          </li>
+          <li>Phone: 999-999-9999</li>
+          <li>Chicago, IL 60605</li>
+        </ul>
+      </div>
+      <div id="personaltraining">
+        <h5><a href="/personaltraining">Personal Training</a></h5>
+        <ul>
+          <li><a href="/personaltraining/schedulesession">Schedule a session</a></li>
+          <li><a href="/personaltraining#methods">Methods</a></li>
+          <li><a href="/personaltraining#programs">Programs</a></li>
+          <li><a href="/personaltraining#stories">Stories</a></li>
+        </ul>
+      </div>
+      <div id="boxing">
+        <h5><a href="/boxing">Boxing</a></h5>
+        <ul>
+          <li><a href="/boxing#events">Upcoming Events</a></li>
+          <li><a href="/inthepress">In the Press</a></li>
+          <li><a href="/buytickets">Buy Tickets</a></li>
+        </ul>
+      </div>
+      <div id="social">
+        <h5>Social</h5>
+        <ul>
+          <li>
+            <a href="">Facebook</a>
+          </li>
+          <li>
+            <a href="">Instagram</a>
+          </li>
+          <li>
+            <a href="">Twitter</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <!--wrapper-->
+</body>
+
+</html>

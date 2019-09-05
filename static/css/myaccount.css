@@ -1,0 +1,48 @@
+div.primary {
+  background-image: url("../img/black-cat-banner.png");
+  background-repeat:no-repeat;
+  background-position:left;
+  background-size:23%;
+ }
+#wrapper{
+  background-color:rgb(217, 217, 217);
+}
+form{
+  width:40%;
+  display:inline-block;
+  vertical-align:top;
+  margin-left:1%;
+}
+@media screen and (max-width:800px){
+  form{
+    width:98%;
+  }
+}
+#messages{
+  margin:8px;
+  font-size: 13px;
+  color:red;
+}
+#messages p{
+  height:16px;
+  margin:0px;
+}
+.hidden {
+  display:none;
+}
+#my_sessions{
+  display:inline-block;
+  width:57%;
+  margin-left:1%;
+}
+@media screen and (max-width:800px){
+  #my_sessions{
+    width:98%;
+  }
+}
+.blue{
+  color:rgb(0, 0, 255);
+}
+h6 {
+  margin-bottom:4px;
+}

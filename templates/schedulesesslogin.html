@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Users</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="{{url_for('static',filename='css/registration.css')}}" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="{{url_for('static',filename='js/main.js')}}"></script>
+</head>
+<body>
+  <div id='wrapper'>
+
+<div class="top-bar">
+    <div class="top-bar-left">
+    <ul class="menu">
+    <li class="menu-text">The Black Cat Agency</li>
+    </ul>
+    </div>
+    <div class="top-bar-right">
+    <ul class="menu">
+    <!--<li><a href="#">One</a></li>
+    <li><a href="#">Two</a></li>
+    <li><a href="#">Three</a></li>-->
+    {% if 'id' in session %}
+    <li><a href="/myaccount/{{session.id}}">Welcome, {{session.first_name}}</a></li>
+    <li><a href="/logout">Logout</a></li>
+    {% endif %}
+    <li><a href="/">Home</a></li>
+    </ul>
+    </div>
+    </div>
+
+<div class="callout large primary">
+    <div class="text-center">
+    <h1>Paul "The Black Cat" Littleton</h1>
+    </div>
+    </div>
+  <div id="messages">
+    <p class='fn hidden'>Please enter a first name.</p>
+    <p class='ln hidden'>Please enter a last name.</p>
+    <p class='email hidden'>Please enter a valid email address.</p>
+    <p class='password hidden'>Password must have at least 8 characters, one uppercase, one lowercase, and one number.</p>
+    <p class='cpassword hidden'>Passwords don't match.</p>
+    <div class='flash-messages'>
+    {% with messages = get_flashed_messages() %}
+      <!-- declare a variable called messages -->
+      {% if messages %}
+      <!-- check if there are any messages -->
+        {% for message in messages %}
+      <!-- loop through the messages -->
+          <p>{{message}}</p>
+      <!-- display each message in a paragraph tag -->
+        {% endfor %} 
+      {% endif %}
+    {% endwith %}
+    </div>
+  </div>
+  <form action="/register-schedulesession" method="POST" id='registration-form'>
+    <h1>Registration</h1>
+    <p> <label for="fn">First Name</label>
+      <input type="text" name="first_name" id="fn" class="form-control">
+    </p>
+    <p><label for="ln">Last Name</label>
+      <input type="text" name="last_name" id="ln" class="form-control">
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" class="form-control">
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="form-control">
+    </p>
+    <p>
+      <label for="confirm_password">Confirm Password</label>
+      <input type="password" name="confirm_password" id="confirm_password" class="form-control">
+    </p>
+    <p>
+      <input type="submit" value="Register" id="btnSubmit">
+    </p>
+  </form>
+  <form action="/login-schedulesession" method="POST">
+    <h1>Login</h1>
+    <p>
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" class="form-control">
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="form-control">
+    </p>
+    <p>
+      <input type="submit" value="Login">
+    </p>
+  </form>
+</div><!--wrapper-->
+</body>
+</html>

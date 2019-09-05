@@ -1,0 +1,29 @@
+div.primary {
+  background-image: url("../img/black-cat-banner.png");
+  background-repeat:no-repeat;
+  background-position:left;
+  background-size:23%;
+ }
+ .hidden {
+   display:none;
+ }
+ div.sticky ul{
+   list-style-type:none;
+ }
+ .iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+ 
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left:0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+   max-height:360px;
+   max-width:640px;
+}
+ 

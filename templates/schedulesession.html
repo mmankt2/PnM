@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Black Cat|Schedule Session</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="{{url_for('static',filename='css/session.css')}}" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="{{url_for('static',filename='js/main.js')}}"></script>
+</head>
+<body>
+  <div id='wrapper'>
+
+<div class="top-bar">
+    <div class="top-bar-left">
+    <ul class="menu">
+    <li class="menu-text">The Black Cat Agency</li>
+    </ul>
+    </div>
+    <div class="top-bar-right">
+    <ul class="menu">
+    <!--<li><a href="#">One</a></li>
+    <li><a href="#">Two</a></li>-->
+    {% if 'id' in session %}
+    <li><a href="/myaccount/{{session.id}}">Welcome, {{session.first_name}}</a></li>
+    <li><a href="/logout">Logout</a></li>
+    {% endif %}
+    <li><a href="/">Home</a></li>
+    </ul>
+    </div>
+    </div>
+
+    <div class="callout large primary">
+    <div class="text-center">
+    <h1>Schedule Session</h1>
+    </div>
+    </div>
+    <div>
+      <iframe src="https://calendar.google.com/calendar/b/1/embed?height=600&amp;wkst=1&amp;bgcolor=%23A79B8E&amp;ctz=America%2FChicago&amp;src=OW4xNnQ1NGlsaWdha2NkNjQ5MTZjaGU0Z3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%238E24AA&amp;showNav=1" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      <form action="/createevent" method='POST'>
+        <input type="hidden" name="info" id="clientinfo">
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date" min="2019-07-01">
+        <label for="time">Time</label>
+        <input type="time" name="time" id="time">
+        <label for="notes">Notes, Goals, etc</label>
+        <input type="text" name="notes" id="notes">
+        
+        <input type="radio" name="length" value="0.5"> 30 Minutes
+        <input type="radio" name="length" value="1" checked> 60 minutes<br>
+
+        <input type="radio" name="recurrence" value="DAILY"> Daily
+        <input type="radio" name="recurrence" value="WEEKLY" checked> Weekly
+        <p>For <input type="number" name="count" id="count" placeholder="1 to 20" step="1" value="1"> occurences. <br><span class="purple">Tip: leave at 1 for a non-recurring event.</span></p>
+        <input type="checkbox" name="reminder" value="True"> Receive email reminder<br>
+        <input type="submit" value="Schedule">
+        <p><span class="blue">To cancel or reschedule, click on "Welcome" at the top right corner.  Cancelations or rescheduled sessions must be made at least 24 hours in advance of the scheduled time.</span></p>
+      </form>
+      
+    </div>
+    
+</div><!--wrapper-->
+</body>
+</html>

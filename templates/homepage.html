@@ -1,0 +1,185 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P&M Littleton | Welcome</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/foundation.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/homepage.css')}}">
+    </head>
+  <body>
+
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">P&M Littleton</li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+        <!--<li><a href="#">One</a></li>
+        <li><a href="#">Two</a></li>-->
+        {% if 'id' in session %}
+          <li><a href="/myaccount/{{session.id}}">Welcome, {{session.first_name}}</a></li>
+          <li><a href="/logout">Logout</a></li>
+        {% else %}
+          <li><a href="/login-register">Login | Register</a></li>
+        {% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout large primary">
+      <div class="row column text-center">
+        <h1>P&M Littleton</h1>
+      </div>
+    </div>
+
+    <div class="row columns">
+        <div class="orbit" role="region" aria-label="Favorite Pictures" data-orbit data-orbit data-use-m-u-i="false">
+            <div class="orbit-wrapper">
+              <div class="orbit-controls">
+                <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+              </div>
+              <ul class="orbit-container">
+                <li class="is-active orbit-slide">
+                  <figure class="orbit-figure">
+                    <img class="orbit-image" src="{{url_for('static',filename='img/sweaty-mirror.jpeg')}}" alt="Paul">
+                    <figcaption class="orbit-caption">Paul hard at work</figcaption>
+                  </figure>
+                </li>
+                <li class="orbit-slide">
+                  <figure class="orbit-figure">
+                    <img class="orbit-image" src="{{url_for('static',filename='img/acro-throne.jpg')}}" alt="Throne">
+                    <figcaption class="orbit-caption">Lets Throne!</figcaption>
+                  </figure>
+                </li>
+                <li class="orbit-slide">
+                  <figure class="orbit-figure">
+                    <img class="orbit-image" src="{{url_for('static',filename='img/buddha_peace_paul2.jpg')}}" alt="Peace">
+                    <figcaption class="orbit-caption">Peace</figcaption>
+                  </figure>
+                </li>
+                <li class="orbit-slide">
+                  <figure class="orbit-figure">
+                    <img class="orbit-image" src="{{url_for('static',filename='img/buddha_peace_Mel.jpg')}}" alt="Peace">
+                    <figcaption class="orbit-caption">So peaceful</figcaption>
+                  </figure>
+                </li>
+              </ul>
+            </div>
+            <nav class="orbit-bullets">
+              <button class="is-active" data-slide="0">
+                <span class="show-for-sr">First slide details.</span>
+                <span class="show-for-sr" data-slide-active-label>Current Slide</span>
+              </button>
+              <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+              <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+              <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+            </nav>
+          </div>
+    </div>
+  
+
+<div class="row" id="content">
+  <div class="medium-8 columns">
+    <div class="blog-post">
+      <h3>About<small class='hidden'>3/6/2015</small></h3>
+      <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fpaul.littleton.7359%2Fvideos%2F358356518447674%2F&show_text=0&width=269" width="269" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+<!-- <img class="thumbnail" src="https://placehold.it/850x350" alt="just a placeholder for the picture that's supposed to be here"> -->
+<p>Paul and Melissa Littleton are passionate fitness professionals who want to help you reach and maintain your fitness goals.  THey bring a well-rounded breadth of knowledge to Fitness 360, offering boxing, kickboxing, yoga, weight training, nutritional, and spiritual wellness services.</p>
+<p>The couple got married in 2018 during a 200hr yoga teacher training program they decided to embark on together.  The bond they share in fitness and nutrition strengthens their union everyday and they want to share their love for fitness with you.</p>
+<p>If you'd like more information on our services, register for an account or send us an email.  We can't wait to hear from you!</p>
+<div class="callout">
+<ul class="menu simple">
+<li><a href="#"></a></li>
+<li><a href="#"></a></li>
+</ul>
+</div>
+</div>
+
+<div class="blog-post">
+<h3 class="hidden">Uphill Fight<small class='hidden'>3/6/2015</small></h3>
+<!--<img class="thumbnail hidden" src="https://placehold.it/850x350">-->
+<div class='hidden iframe-container'>
+<iframe class='thumbnail' src="https://player.vimeo.com/video/41887099" alt="Please connect to the internet for video to play" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
+<p class="hidden"><a class="hidden" href="https://vimeo.com/41887099">Uphill fight, Paul Littleton battled through troubled youth to become champion boxer.</a> from <a href="https://vimeo.com/user11647450">Tim Escolin</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<p class="hidden">Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+<div class="callout">
+<ul class="menu simple">
+<li><a href="#"></a></li>
+<li><a href="#"></a></li>
+</ul>
+</div>
+</div>
+<!--
+<div class="blog-post">
+<h3>Awesome blog post title <small>3/6/2015</small></h3>
+<img class="thumbnail" src="https://placehold.it/850x350">
+<p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+<div class="callout">
+<ul class="menu simple">
+<li><a href="#">Author: Mike Mikers</a></li>
+<li><a href="#">Comments: 3</a></li>
+</ul>
+</div>
+</div>-->
+</div>
+<div class="medium-3 columns" data-sticky-container>
+<div class="sticky" data-sticky data-anchor="content">
+<h4>Contact</h4>
+<ul>
+<li>Email: <a href="mailto:info@paullittletonboxing.com">info@paullittletonboxing.com</a></li>
+<li>Phone: 999-999-9999</a></li>
+<li>Chicago, IL 60605</a></li>
+</ul>
+<h4>Personal Training</h4>
+<ul>
+<li><a href="/personaltraining/calendar">Schedule a session</a></li>
+<li><a href="/personaltraining#methods">Methods</a></li>
+<li><a href="/personaltraining#programs">Programs</a></li>
+<li><a href="/personaltraining#stories">Stories</a></li>
+</ul>
+<h4>Boxing</h4>
+<ul>
+<li><a href="/boxing#events">Upcoming Events</a></li>
+<li><a href="/inthepress">In the Press</a></li>
+<li><a href="/buytickets">Buy Tickets</a></li>
+</ul>
+<h4>Social</h4>
+<ul>
+<li><a href="/media">In the media</a></li>
+<li><a href="/blog">Blog</a></li>
+<li><a href="">Facebook</a></li>
+<li><a href="">Instagram</a></li>
+<li><a href="">Twitter</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row column">
+<ul class="pagination" role="navigation" aria-label="Pagination">
+<li class="disabled">Previous</li>
+<li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+<li><a href="#" aria-label="Page 2">2</a></li>
+<li><a href="#" aria-label="Page 3">3</a></li>
+<li><a href="#" aria-label="Page 4">4</a></li>
+<li class="ellipsis">...</li>
+<li><a href="#" aria-label="Page 12">12</a></li>
+<li><a href="#" aria-label="Page 13">13</a></li>
+<li><a href="#" aria-label="Next page">Next</a></li>
+</ul>
+</div>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{{url_for('static',filename='js/homepage.js')}}"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="{{url_for('static',filename='js/foundation.js')}}"></script>
+<script>
+      $(document).foundation();
+</script>
+</body>
+</html>

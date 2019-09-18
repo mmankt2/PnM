@@ -36,6 +36,7 @@
     </div>
 
     <div class="row columns">
+      <!--
         <div class="orbit" role="region" aria-label="Favorite Pictures" data-orbit data-orbit data-use-m-u-i="false">
             <div class="orbit-wrapper">
               <div class="orbit-controls">
@@ -79,11 +80,12 @@
               <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
             </nav>
           </div>
-    </div>
+    </div>-->
   
 
 <div class="row" id="content">
   <div class="medium-8 columns">
+    <img id="welcome_video" src="http://placehold.co/800x400" alt="welcome video placeholder">
     <div class="blog-post">
       <h3>About<small class='hidden'>3/6/2015</small></h3>
       <!-- <img class="thumbnail" src="https://placehold.it/850x350" alt="just a placeholder for the picture that's supposed to be here"> -->
@@ -161,7 +163,7 @@
 </div>
 </div>
 </div>
-<div class="row column">
+<!--<div class="row column">
 <ul class="pagination" role="navigation" aria-label="Pagination">
 <li class="disabled">Previous</li>
 <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
@@ -173,6 +175,20 @@
 <li><a href="#" aria-label="Page 13">13</a></li>
 <li><a href="#" aria-label="Next page">Next</a></li>
 </ul>
+</div>-->
+<div class="row column">
+  <ul class="menu">
+    <li><a href="https://www.facebook.com/melissa.manktelow/media_set?set=a.10217298506707084&type=3"><img src="{{url_for('static',filename='img/fb-icon.jpg')}}" alt="facebook"></a></li>
+    <li><a href="https://twitter.com/mlittleton2"><img src="{{url_for('static',filename='img/twitter-icon.png')}}" alt="twitter"></a></li>
+    <li><a href="https://www.instagram.com/mlittleton2/"><img src="{{url_for('static',filename='img/ig-icon.jpg')}}" alt="instagram"></a></li>
+    <li><a href="https://www.linkedin.com/in/melissa-littleton-15287b45/"><img src="{{url_for('static',filename='img/linkedin-icon.png')}}" alt="linkedin"></a></li>
+    {% if 'id' in session %}
+      <li><a href="/myaccount/{{session.id}}">My Account</a></li>
+      <li><a href="/logout">Logout</a></li>
+    {% else %}
+      <li><a href="/login-register">Login | Register</a></li>
+    {% endif %}
+  </ul>
 </div>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script> 
